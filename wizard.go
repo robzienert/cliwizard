@@ -1,10 +1,6 @@
 package cliwizard
 
-import (
-	"fmt"
-
-	"github.com/PhysicalGraph/local-cloud/shared/ioutils"
-)
+import "fmt"
 
 // AskFunc is used to handle prompting a question and receiving the user input.
 type AskFunc func(q *Question) Context
@@ -17,7 +13,7 @@ func defaultAsk(q *Question) Context {
 	fmt.Printf("%s > ", text)
 	c := &context{}
 	{
-		v := ioutils.MustReadIn()
+		v := MustReadIn()
 		if v == "" {
 			v = q.Default
 		}
